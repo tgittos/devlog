@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110504221829) do
+ActiveRecord::Schema.define(:version => 20110504223445) do
 
   create_table "documents", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(:version => 20110504221829) do
     t.integer  "document_id"
     t.string   "content"
     t.boolean  "deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_documents", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "document_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "hash"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
